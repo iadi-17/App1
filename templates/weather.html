@@ -1,0 +1,132 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>What's the weather like?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+</head>
+
+<body>
+   <section class = "section">
+         <div class = "container">
+            <span class = "title">
+               Weather App
+            </span>
+            <br>
+            <br>
+            
+            <nav class = "navbar is-primary">
+               <div class = "navbar-brand">
+                  <a class = "navbar-item" href = "#"></a>
+                  <div class = "navbar-burger burger" data-target = "navbarExample">
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                  </div>
+               </div>
+               <div id = "navbarExample" class = "navbar-menu">
+                  <div class = "navbar-start">
+                     <a class = "navbar-item" href = "/">Home</a>
+                     <a class = "navbar-item" href = "/profile">Profile</a> 
+                     <div class = "navbar-item has-dropdown is-hoverable">
+                        <a class = "navbar-link" href = "#">Search</a>
+                        <div class = "navbar-dropdown is-boxed">
+                           <a class = "navbar-item" href = "/admin">Admin</a>                           
+                           <a class = "navbar-item" href = "/predict">Forest Fire</a>
+                           <a class = "navbar-item" href = "/rainfall">Rainfall</a>
+                           <a class = "navbar-item" href = "/logout">logout</a>
+                          <a class = "navbar-item" href = "/upload">upload</a>
+                          
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class = "navbar-end">
+                     <div class = "navbar-item">
+                        <div class = "field is-grouped">
+                           <p class = "control">
+                             
+                              </a>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </nav>
+         </div>
+         
+      </section>
+                 
+  
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    What's the weather like?
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" name="city" type="text" placeholder="City Name">
+                            </div>
+                            <div class="control">
+                                <button class="button is-info">
+                                    Add City
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    {% for weather in weather_data %}
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-50x50">
+                                    <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">{{ weather.city }}</span>
+                                        <br>
+                                        <h4 class="subtitle">Temperature:{{ weather.temperature }}°F</h4>
+                                        <h4 class="subtitle">Pressure:{{ weather.pressure}}</h4>
+                                        <h4 class="subtitle">Humidity:{{ weather.humidity }}</h4>
+                                        <h4 class="subtitle">Windspeed:{{ weather.windspeed }}</h4>
+                                       
+                                        <br> {{ weather.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    </footer>
+</body>
+
+</html>

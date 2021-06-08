@@ -1,0 +1,7 @@
+.leaf { 
+    width: 100px; height: 100px;
+    background-color: #A0DE21; 
+    -moz-border-radius: 100px 0px;
+    -webkit-border-radius: 100px 0px;
+    border-radius: 100px 0px;
+  }
